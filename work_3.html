@@ -53,14 +53,35 @@ Tasks
         //     alert(i);
         //   };
         // }
-        for (var i = 0, len = els.length; i < len; i++) {
-  (function(num) {
-    els[num].onclick = function() {
-      alert(this.innerText);
-      console.log(this.innerText)
-    };
-  })(i);
-}
+//         for (var i = 0, len = els.length; i < len; i++) {
+//   (function(num) {
+//     els[num].onclick = function() {
+//       alert(this.innerText);
+//       console.log(this.innerText)
+//     };
+//   })(i);
+// }
+
+// function makeClickHandler(index) {
+//   return function() {
+//     alert(els[index].innerText);
+//   };
+// }
+
+// for (var i = 0; i < els.length; i++) {
+//   els[i].onclick = makeClickHandler(i);
+// }
+
+function makeClickHandler(index) {
+  return function() {
+    alert(els[index].innerText);
+  };
+ }
+
+ for (var i = 0; i < els.length; i++) {
+  els[i].onclick = makeClickHandler(i);
+ }
+
       </script>
     </div>
   </body>
